@@ -17,6 +17,9 @@ data class contact_entity (
     val number : String,
 
     @ColumnInfo(name = "favourite")
-    val favourite : Boolean,
+    val favourite : Boolean = false,
+
+    @ColumnInfo(name = "description")
+    val description : String = "New..."
 
 )

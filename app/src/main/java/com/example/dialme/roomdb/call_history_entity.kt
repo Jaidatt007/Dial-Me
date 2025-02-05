@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class call_history_database(
+data class call_history_entity(
 
     @PrimaryKey(autoGenerate = true)
     val id:Long = 0L,
@@ -20,5 +20,5 @@ data class call_history_database(
     val lastStatus : String,
 
     @ColumnInfo(name = "last_call") //time
-    val lastCall : String
+    val lastCall : Long = 0L
 )

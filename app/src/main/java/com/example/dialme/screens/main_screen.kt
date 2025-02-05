@@ -35,9 +35,13 @@ import androidx.navigation.compose.rememberNavController
 import com.example.dialme.R
 import com.example.dialme.navigations.MainScreen_Navigation
 import com.example.dialme.resources.Routes
+import com.example.dialme.viewmodel.CallHistoryViewModel
+import com.example.dialme.viewmodel.ContactViewModel
 
 @Composable
-fun MainScreen(modifier: Modifier){
+fun MainScreen(modifier: Modifier,
+               contactViewModel: ContactViewModel,
+               callHistoryViewModel: CallHistoryViewModel){
 
     // Get the screen width and height in pixels
     val configuration = LocalConfiguration.current
@@ -104,7 +108,9 @@ fun MainScreen(modifier: Modifier){
 //            }
         )
     ) {
-        MainScreen_Navigation(navController = navController)
+        MainScreen_Navigation(navController = navController,
+            contactViewModel = contactViewModel,
+            callHistoryViewModel = callHistoryViewModel)
     }
 
     //Bottom app bar

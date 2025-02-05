@@ -27,6 +27,10 @@ interface ContactDao {
     @Query("SELECT * FROM contact_entity ORDER BY user_name ASC")
     fun getAllContacts(): Flow<List<contact_entity>>
 
+    // 🔹 Get contact by number
+    @Query("SELECT * FROM contact_entity WHERE contact_number = :number LIMIT 1")
+    suspend fun getContactByNumber(number: String): contact_entity?
+
     // Get a contact by ID
     @Query("SELECT * FROM contact_entity WHERE id = :contactId")
     suspend fun getContactById(contactId: Long): contact_entity?
@@ -35,8 +39,12 @@ interface ContactDao {
     @Query("SELECT * FROM contact_entity WHERE user_name LIKE :searchQuery")
     fun searchContacts(searchQuery: String): Flow<List<contact_entity>>
 
+    // Search contacts by number
+    @Query("SELECT * FROM contact_entity WHERE contact_number LIKE :searchQuery")
+    fun searchContactsByNumber(searchQuery: String): Flow<List<contact_entity>>
+
     // Get favorite contacts
-    @Query("SELECT * FROM contact_entity WHERE favourite = 'true'")
+    @Query("SELECT * FROM contact_entity WHERE favourite = 1")
     fun getFavouriteContacts(): Flow<List<contact_entity>>
 
     // Delete all contacts

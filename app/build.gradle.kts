@@ -53,6 +53,9 @@ dependencies {
     // Optional: Room with Kotlin Coroutines support
     implementation(libs.androidx.room.ktx)
 
+    // Calling
+    implementation(libs.google.accompanist.permissions)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
